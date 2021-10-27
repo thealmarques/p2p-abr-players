@@ -5,11 +5,9 @@ export function isBrowserSupported() {
     return shaka.Player.isBrowserSupported();
 }
 
-export async function getBrowserFingerPrint() {
+export async function getBrowserFingerPrint(): Promise<string> {
     const fingerPrint = await FingerprintJS.load();
     const result = await fingerPrint.get();
-    return {
-        id: result.visitorId,
-        zone: result.components.timezone.value
-    };
+
+    return result.visitorId;
 }

@@ -1,4 +1,4 @@
-import { getBrowserFingerPrint, isBrowserSupported } from "./utils/browser";
+import { isBrowserSupported } from "./utils/browser";
 import * as shaka from 'shaka-player';
 import { startWorker } from "../core/workers";
 
@@ -10,20 +10,18 @@ export class P2PShakaPlayer {
             throw new Error('Browser is not supported');
         }
 
-        getBrowserFingerPrint().then(({ id }) => {
-            // Install built-in polyfills to patch browser incompatibilities.
-            shaka.polyfill.installAll();
+        // Install built-in polyfills to patch browser incompatibilities.
+        shaka.polyfill.installAll();
 
-            // Activate network listeners
-            shaka.net.NetworkingEngine.registerScheme("http", this.handleRequest.bind(this));
-            shaka.net.NetworkingEngine.registerScheme("https", this.handleRequest.bind(this));
+        // Activate network listeners
+        shaka.net.NetworkingEngine.registerScheme("http", this.handleRequest.bind(this));
+        shaka.net.NetworkingEngine.registerScheme("https", this.handleRequest.bind(this));
 
-            startWorker();
+        startWorker();
 
-            const player = (this.player = new shaka.Player(video));
-            player.load(manifestUri)
-                .catch((error: Error) => console.error(error));
-        });
+        const player = (this.player = new shaka.Player(video));
+        player.load(manifestUri)
+            .catch((error: Error) => console.error(error));
     }
 
     private static handleRequest(

@@ -1,4 +1,6 @@
+import { getGeoLocation } from "./geo-location";
 import { BootMessage, MessageReady, MessageRequest, MessageResponse, PromiseResponse, RpcContract, RpcMessageType, RpcRouterType } from "./interfaces/rpc";
+import { setBrowserLocation } from "./state/browser";
 
 // Hotfix for CRA issue (alternative is to use worker-plugin instead of worker-load).
 if (process.env.NODE_ENV !== 'production') {
@@ -35,7 +37,13 @@ export class RpcWorker<C extends RpcContract> {
         }
     }
 
-    private bootRequestReceived() {
+    private async bootRequestReceived(data: BootMessage) {
+        const location = await getGeoLocation();
+        setBrowserLocation(data.config.browserId, {
+            lat: location.latitude,
+            lng: location.longitude,
+        });
+
         this.worker.postMessage({
             type: RpcMessageType.READY,
             methods: Object.keys(this.exposedMethods),

@@ -36,6 +36,10 @@ export interface MessageResponse extends RpcMessage {
     handler: string;
 }
 
+export interface BootConfig {
+    browserId: string;
+}
+
 export interface BootMessage extends RpcMessage {
-    // Add any extra properties
+    config: BootConfig;
 }
