@@ -1,0 +1,26 @@
+{
+  "name": "websockets-server",
+  "version": "1.0.0",
+  "description": "Web server for peer discovery",
+  "scripts": {
+    "start": "nodemon src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "peer",
+    "ts",
+    "js",
+    "sockets.io"
+  ],
+  "author": "thealmarques",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "socket.io": "^4.3.1"
+  }
+}

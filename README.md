@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+P2P Video Streaming via WebSocket Server with KD-tree Optimization
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Disclaimer: This is only for test purposes. A complex approach on a CDN like chain among peers.
 
-## Available Scripts
+## Table of Contents
+- Overview
+- Features
+- Issues
+- Demo
+- Installation
 
-In the project directory, you can run:
+## Overview
 
-### `yarn start`
+This repository hosts a P2P (Peer-to-Peer) video streaming application that utilizes a WebSocket server as the point of contact and WebRTC for transferring video parts between peers. The project aims to enable efficient real-time video streaming between users, minimizing latency and bandwidth usage. The application optimizes peer selection using a KD-tree data structure to efficiently find and connect to the closest peers for improved video delivery.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- P2P video streaming using WebRTC technology using a custom RPC Worker module.
+- WebSocket server acts as the central point of contact for peers to establish connections.
+- Low-latency video transmission between peers.
+- Dynamic selection of the closest peer using KD-tree optimization for optimal video delivery.
+- Support for high-quality video formats.
+- Scalable architecture for handling multiple simultaneous connections.
 
-### `yarn test`
+## Issues
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Not handling multiple peers at same time (> 2) - Could be a STUN Server problem, the connection is closed when a second data channel is created.
 
-### `yarn build`
+## Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Provide a link to a live demo or a video showcasing your application in action.]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository to your local machine:
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   git clone https://github.com/thealmarques/p2p-abr-players.git
+   cd p2p-abr-players
+   cd websockets-server
+   yarn
+   cd ../
+   yarn
+   yarn start

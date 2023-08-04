@@ -1,0 +1,26 @@
+.App {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0, .85);
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+
+    .video-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    video {
+        margin-top: 50px;
+        height: 500px;
+    }
+
+    .peer-map {
+        margin-top: 40px;
+        width: 700px;
+        height: 500px;
+    }
+}
