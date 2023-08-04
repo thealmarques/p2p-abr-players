@@ -1,6 +1,6 @@
-P2P Video Streaming via WebSocket Server with KD-tree Optimization
+# P2P Video Streaming via WebSocket Server with KD-tree Optimization
 
-Disclaimer: This is only for test purposes. A complex approach on a CDN like chain among peers.
+**Disclaimer: This is only for test purposes. A complex approach on a CDN like chain among peers.**
 
 ## Table of Contents
 - Overview
@@ -15,11 +15,11 @@ This repository hosts a P2P (Peer-to-Peer) video streaming application that util
 
 ## Features
 
+- Supports HLS and DASH.
 - P2P video streaming using WebRTC technology using a custom RPC Worker module.
 - WebSocket server acts as the central point of contact for peers to establish connections.
 - Low-latency video transmission between peers.
 - Dynamic selection of the closest peer using KD-tree optimization for optimal video delivery.
-- Support for high-quality video formats.
 - Scalable architecture for handling multiple simultaneous connections.
 
 ## Issues
@@ -28,7 +28,7 @@ This repository hosts a P2P (Peer-to-Peer) video streaming application that util
 
 ## Demo
 
-[Provide a link to a live demo or a video showcasing your application in action.]
+<img src="resources/demo720.gif" height="60%" width="80%"/>
 
 ### Installation
 
@@ -37,8 +37,18 @@ This repository hosts a P2P (Peer-to-Peer) video streaming application that util
    ```bash
    git clone https://github.com/thealmarques/p2p-abr-players.git
    cd p2p-abr-players
+
+2. Start the websocket server
+
+   ```bash
    cd websockets-server
    yarn
-   cd ../
+   yarn start
+
+3. Start the application
+
+   ```bash
    yarn
    yarn start
+
+   To test use http://localhost:3000/?lat=35.8617&lng=104.1954 (with coordinates in the query parameters
