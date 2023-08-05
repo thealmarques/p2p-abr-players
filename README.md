@@ -1,4 +1,4 @@
-# P2P Video Streaming via WebSocket Server with KD-tree Optimization
+# P2P Video Streaming
 
 **Disclaimer: This is only for test purposes. A complex approach on a CDN like chain among peers.**
 
